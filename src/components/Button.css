@@ -8,6 +8,7 @@
     outline: none;
     border: none;
     cursor: pointer;
+    min-width: 120px;
   }
   
   .btn--primary {
@@ -22,6 +23,7 @@
     padding: 8px 20px;
     border: 1px solid var(--primary);
     transition: all 0.3s ease-out;
+    margin-right: 10px;
   }
   
   .btn--medium {

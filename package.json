@@ -14,6 +14,7 @@
     "@testing-library/user-event": "^13.5.0",
     "pixi.js": "^7.2.3",
     "react": "^18.2.0",
+    "react-cache-buster": "^0.1.8",
     "react-dom": "^18.2.0",
     "react-pixi": "^0.9.19",
     "react-router-dom": "^6.9.0",
