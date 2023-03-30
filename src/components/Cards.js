@@ -1,6 +1,8 @@
 import React from "react";
 import "./Cards.css";
 import CardItem from "./CardItem";
+import ParentHub from "../assets/Parents.png";
+import AboutUs from "../assets/Children.png";
 
 function Cards() {
   return (
@@ -10,14 +12,14 @@ function Cards() {
         <div className="cards__wrapper">
           <ul className="cards__items">
             <CardItem
-              src="../assets/Snitch.png"
-              text="Explore the hidden waterfall deep inside the Amazon Jungle"
+              src={ParentHub}
+              text="Parent Hub"
               label="Parent"
               path="/Parent-hub"
             />
             <CardItem
-              src="../assets/Snitch.png"
-              text="Travel through the Islands of Bali in a Private Cruise"
+              src={AboutUs}
+              text="About Dyslexia & Dysgraphia"
               label="Parent"
               path="/About"
             />
