@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { Stage, Sprite } from "@inlet/react-pixi";
-import { Box, Button } from "@mui/material";
+import { Dialog, Slide, Box, Button } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import * as PIXI from "pixi.js";
 import backgroundImage from "../assets/background/background1.png";
 import itemImage from "../assets/Snitch.png";
 import cursorImage from "../assets/Wand.png";
+import letter from "../assets/QuestionBG.png";
 
 const ITEM_SIZE = 50;
 
@@ -16,12 +17,18 @@ const useStyles = makeStyles({
   resetButton: {
     marginTop: 10,
   },
+  paper: {
+    backgroundImage: `url(${letter})`,
+    backgroundSize: "cover",
+    backgroundRepeat: "no-repeat",
+    backgroundPosition: "center",
+  },
 });
 
 const GameView = () => {
   const [itemPosition, setItemPosition] = useState({
-    x: Math.random() * window.innerWidth,
-    y: Math.random() * window.innerHeight,
+    x: Math.random() * (window.innerWidth - 2 * 100) + 100,
+    y: Math.random() * (window.innerHeight - 2 * 100) + 100,
   });
   const [won, setWon] = useState(false);
   const classes = useStyles();
@@ -36,7 +43,9 @@ const GameView = () => {
 
   const handleRightClick = () => {
     setWon(true);
-    console.log("Done");
+    ////////////////////////////////////////////////////////////////////////////////////////////////
+    setOpen(true);
+    ////////////////////////////////////////////////////////////////////////////////////////////////
   };
 
   const handleResetClick = () => {
@@ -45,34 +54,10 @@ const GameView = () => {
       y: Math.random() * (window.innerHeight - 2 * 100) + 100,
     });
     setWon(false);
+    ////////////////////////////////////////////////////////////////////////////////////////////////
+    setOpen(false);
+    ////////////////////////////////////////////////////////////////////////////////////////////////
   };
-
-  //   useEffect(() => {
-  //     const app = new PIXI.Application({});
-
-  //     // Import and create custom cursor sprite
-  //     const customCursor = new PIXI.Sprite(PIXI.Texture.from(cursorImage));
-
-  //     // Hide default cursor
-  // document.body.style.cursor = "none";
-
-  //     // Update custom cursor position on mouse move
-  //     const handleMouseMove = (e) => {
-  //       customCursor.position.set(e.clientX, e.clientY);
-  //     };
-  //     window.addEventListener("mousemove", handleMouseMove);
-
-  //     // Add custom cursor to stage
-  //     app.stage.addChild(customCursor);
-
-  //     // Append PIXI app view to container element
-  //     document.getElementById("game-container").appendChild(app.view);
-
-  //     return () => {
-  //       // Remove event listener on cleanup
-  //       window.removeEventListener("mousemove", handleMouseMove);
-  //     };
-  //   }, []);
 
   const centerAnchor = new PIXI.Point(0.2, 0);
 
@@ -80,9 +65,6 @@ const GameView = () => {
     mouseX: 0,
     mouseY: 0,
   });
-
-  // Hide default cursor
-  document.body.style.cursor = "none";
 
   useEffect(() => {
     // Update custom cursor position on mouse move
@@ -98,6 +80,17 @@ const GameView = () => {
     window.addEventListener("mousemove", handleMouseMove);
   }, []);
 
+  ///////////////////////////////////////////////////////////////
+
+  const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+    // Hide default cursor
+    won
+      ? (document.body.style.cursor = "pointer")
+      : (document.body.style.cursor = "none");
+  }, [won]);
+
   return (
     <Box
       display="flex"
@@ -105,55 +98,59 @@ const GameView = () => {
       alignItems="center"
       id="game-container"
     >
-      {!won && (
-        <Stage
-          className={classes.stage}
+      <Stage
+        className={classes.stage}
+        width={window.innerWidth}
+        height={window.innerHeight}
+        interactive={true}
+      >
+        <Sprite
+          texture={PIXI.Texture.from(backgroundImage)}
           width={window.innerWidth}
           height={window.innerHeight}
-          interactive={true}
-        >
-          <Sprite
-            texture={PIXI.Texture.from(backgroundImage)}
-            width={window.innerWidth}
-            height={window.innerHeight}
-          />
+        />
 
-          <Sprite
-            texture={PIXI.Texture.from(itemImage)}
-            x={itemPosition.x}
-            y={itemPosition.y}
-            width={90}
-            height={ITEM_SIZE}
-            interactive={true}
-            pointerdown={(e) => {
-              handleRightClick();
-            }}
-          />
+        {!won && (
+          <>
+            <Sprite
+              texture={PIXI.Texture.from(itemImage)}
+              x={itemPosition.x}
+              y={itemPosition.y}
+              width={90}
+              height={ITEM_SIZE}
+              interactive={true}
+              pointerdown={(e) => {
+                handleRightClick();
+              }}
+            />
 
-          <Sprite
-            name="vacuumHead"
-            fill={0xffffff}
-            x={mouse.mouseX}
-            y={mouse.mouseY}
-            width={150}
-            height={175}
-            anchor={centerAnchor}
-            texture={PIXI.Texture.from(cursorImage)}
-          />
-        </Stage>
-      )}
-      {won && (
-        <Box>
-          <p>You won!</p>
-          <Button
-            variant="contained"
-            onClick={handleResetClick}
-            className={classes.resetButton}
-          >
-            Reset
+            <Sprite
+              name="wand"
+              fill={0xffffff}
+              x={mouse.mouseX}
+              y={mouse.mouseY}
+              width={150}
+              height={175}
+              anchor={centerAnchor}
+              texture={PIXI.Texture.from(cursorImage)}
+            />
+          </>
+        )}
+      </Stage>
+
+      <Dialog
+        open={open}
+        TransitionComponent={Slide}
+        TransitionProps={{ direction: open ? "down" : "up" }}
+        transitionDuration={2000}
+      >
+        <div className={classes.paper}>
+          <Box p={2}>Congratulations! You won!</Box>
+          <Button variant="contained" onClick={handleResetClick} fullWidth>
+            Play again
           </Button>
-        </Box>
-      )}
+        </div>
+      </Dialog>
     </Box>
   );
 };
