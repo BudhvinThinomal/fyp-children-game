@@ -6,7 +6,7 @@ import * as PIXI from "pixi.js";
 import backgroundImage from "../assets/background/background1.png";
 import itemImage from "../assets/Snitch.png";
 import cursorImage from "../assets/Wand.png";
-import letter from "../assets/QuestionBG.png";
+import chalkBoard from "../assets/QuestionBG.png";
 
 const ITEM_SIZE = 50;
 
@@ -18,10 +18,12 @@ const useStyles = makeStyles({
     marginTop: 10,
   },
   paper: {
-    backgroundImage: `url(${letter})`,
-    backgroundSize: "cover",
+    backgroundImage: `url(${chalkBoard})`,
+    backgroundSize: "contain",
     backgroundRepeat: "no-repeat",
     backgroundPosition: "center",
+    width: "100%",
+    height: "100%",
   },
 });
 
@@ -141,14 +143,26 @@ const GameView = () => {
       <Dialog
         open={open}
         TransitionComponent={Slide}
-        TransitionProps={{ direction: open ? "down" : "up" }}
-        transitionDuration={2000}
+        TransitionProps={{ direction: open ? "up" : "down" }}
+        transitionDuration={3000}
+        fullScreen
+        PaperProps={{ style: { backgroundColor: "transparent" } }}
       >
         <div className={classes.paper}>
-          <Box p={2}>Congratulations! You won!</Box>
-          <Button variant="contained" onClick={handleResetClick} fullWidth>
-            Play again
-          </Button>
+          <Box
+            style={{ backgroundColor: "pink" }}
+            p={10}
+            mt={25}
+            ml={20}
+            mr={20}
+          >
+            Congratulations! You won!
+          </Box>
+          <div style={{ display: "flex", justifyContent: "center" }}>
+            <Button variant="contained" onClick={handleResetClick}>
+              Play again
+            </Button>
+          </div>
         </div>
       </Dialog>
     </Box>

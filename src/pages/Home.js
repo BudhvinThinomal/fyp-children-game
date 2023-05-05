@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "../App.css";
 import Cards from "../components/Cards";
-import HeroSection from "../components/HeroSection";
+import GameSection from "../components/GameSection";
 import GameView from "../pages/GameView";
 import Footer from "../components/Footer";
 
@@ -14,7 +14,7 @@ const Home = (props) => {
         <GameView closeGame={closeGame} />
       ) : (
         <>
-          <HeroSection onClick={startGame} />
+          <GameSection onClick={startGame} />
           <Cards />
           <Footer />
         </>
