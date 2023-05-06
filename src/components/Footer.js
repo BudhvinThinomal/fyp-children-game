@@ -1,6 +1,7 @@
 import React from "react";
 import "./Footer.css";
 import { Link } from "react-router-dom";
+import { Typography } from "@mui/material";
 
 function Footer() {
   return (
@@ -9,7 +10,16 @@ function Footer() {
         <div className="social-media-wrap">
           <div className="footer-logo">
             <Link to="/" className="social-logo">
-              AKURU MITHURU
+              <Typography
+                style={{
+                  fontFamily: "Sinhala Title",
+                  fontSize: "30px",
+                  fontWeight: 500,
+                }}
+              >
+                wl=re us;=re
+              </Typography>
+              {/* AKURU MITHURU */}
               <i className="fas fa-quidditch" />
             </Link>
           </div>

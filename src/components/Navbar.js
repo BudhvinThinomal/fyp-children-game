@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Button } from "./Button";
 import { Link } from "react-router-dom";
 import "./Navbar.css";
+import { Typography } from "@mui/material";
 
 function Navbar(props) {
   const { startGame } = props;
@@ -30,7 +31,16 @@ function Navbar(props) {
       <nav className="navbar">
         <div className="navbar-container">
           <Link to="/" className="navbar-logo" onClick={closeMobileMenu}>
-            AKURU MITHURU
+            <Typography
+              style={{
+                fontFamily: "Sinhala Title",
+                fontSize: "30px",
+                fontWeight: 500,
+              }}
+            >
+              wl=re us;=re
+            </Typography>
+            {/* AKURU MITHURU */}
             <i className="fas fa-quidditch" />
           </Link>
           <div className="menu-icon" onClick={handleClick}>
@@ -39,7 +49,16 @@ function Navbar(props) {
           <ul className={click ? "nav-menu active" : "nav-menu"}>
             <li className="nav-item">
               <Link to="/" className="nav-links" onClick={closeMobileMenu}>
-                Home
+                <Typography
+                  style={{
+                    fontFamily: "Sinhala",
+                    fontSize: "25px",
+                    fontWeight: 600,
+                  }}
+                >
+                  uq,a msgqj
+                </Typography>
+                {/* Home */}
               </Link>
             </li>
 
@@ -52,7 +71,16 @@ function Navbar(props) {
                   startGame();
                 }}
               >
-                Game
+                <Typography
+                  style={{
+                    fontFamily: "Sinhala",
+                    fontSize: "25px",
+                    fontWeight: 600,
+                  }}
+                >
+                  lS%vdj
+                </Typography>
+                {/* Game */}
               </Link>
             </li>
 
@@ -65,13 +93,31 @@ function Navbar(props) {
                   startGame();
                 }}
               >
-                Parent Hub
+                <Typography
+                  style={{
+                    fontFamily: "Sinhala",
+                    fontSize: "25px",
+                    fontWeight: 600,
+                  }}
+                >
+                  uõmsh flakaøh
+                </Typography>
+                {/* Parent Hub */}
               </Link>
             </li>
 
             <li className="nav-item">
               <Link to="/About" className="nav-links" onClick={closeMobileMenu}>
-                About
+                <Typography
+                  style={{
+                    fontFamily: "Sinhala",
+                    fontSize: "25px",
+                    fontWeight: 600,
+                  }}
+                >
+                  f;dr;=re
+                </Typography>
+                {/* About */}
               </Link>
             </li>
 
@@ -81,7 +127,16 @@ function Navbar(props) {
                 className="nav-links-mobile"
                 onClick={closeMobileMenu}
               >
-                Log In
+                <Typography
+                  style={{
+                    fontFamily: "Sinhala",
+                    fontSize: "25px",
+                    fontWeight: 600,
+                  }}
+                >
+                  mqrkh
+                </Typography>
+                {/* Log In */}
               </Link>
             </li>
 
@@ -91,12 +146,47 @@ function Navbar(props) {
                 className="nav-links-mobile"
                 onClick={closeMobileMenu}
               >
-                Sign Up
+                <Typography
+                  style={{
+                    fontFamily: "Sinhala",
+                    fontSize: "25px",
+                    fontWeight: 600,
+                  }}
+                >
+                  ,shdmÈxÑh
+                </Typography>
+                {/* Sign Up */}
               </Link>
             </li>
           </ul>
-          {button && <Button buttonStyle="btn--outline">Log In</Button>}
-          {button && <Button buttonStyle="btn--outline">SIGN UP</Button>}
+          {button && (
+            <Button buttonStyle="btn--outline">
+              <Typography
+                style={{
+                  fontFamily: "Sinhala",
+                  fontSize: "20px",
+                  fontWeight: 600,
+                }}
+              >
+                mqrkh
+              </Typography>
+              {/* Log In */}
+            </Button>
+          )}
+          {button && (
+            <Button buttonStyle="btn--outline">
+              <Typography
+                style={{
+                  fontFamily: "Sinhala",
+                  fontSize: "20px",
+                  fontWeight: 600,
+                }}
+              >
+                ,shdmÈxÑh
+              </Typography>
+              {/* Sign Up */}
+            </Button>
+          )}
         </div>
       </nav>
     </>

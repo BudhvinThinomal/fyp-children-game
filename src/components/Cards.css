@@ -7,6 +7,15 @@ h1 {
   text-align: center;
 }
 
+.cards > h3 {
+  color: #fff;
+  font-size: 40px;
+  font-family: "Sinhala";
+  font-weight: 600;
+  color: #252e48;
+  text-align: center;
+}
+
 .cards__container {
   display: flex;
   flex-flow: column;
