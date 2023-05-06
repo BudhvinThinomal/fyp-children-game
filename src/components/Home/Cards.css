@@ -1,6 +1,7 @@
 .cards {
   padding: 4rem;
-  background: #fff;
+  background-color: whitesmoke;
+  background-image: linear-gradient(to top, #999999, whitesmoke);
 }
 
 h1 {
@@ -40,6 +41,7 @@ h1 {
   flex: 1;
   margin: 0 1rem;
   border-radius: 10px;
+  background: whitesmoke;
 }
 
 .cards__item__link {

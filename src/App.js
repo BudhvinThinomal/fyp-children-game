@@ -60,11 +60,10 @@ function App() {
                   />
                 }
               />
-
-              <Route path="/Parent-hub" element={ParentHub} />
-              <Route path="/About" element={About} />
-              <Route path="/Log-in" element={LogIn} />
-              <Route path="/Sign-up" element={SignUp} />
+              <Route path="/Parent-hub" element={<ParentHub />} />
+              <Route path="/About" element={<About />} />
+              <Route path="/Log-in" element={<LogIn />} />
+              <Route path="/Sign-up" element={<SignUp />} />
             </Routes>
             {!gameStarted && <Footer />}
           </Suspense>

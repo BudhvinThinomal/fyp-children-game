@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import "../App.css";
 import Cards from "../components/Home/Cards";
 
 const ParentHub = (props) => {

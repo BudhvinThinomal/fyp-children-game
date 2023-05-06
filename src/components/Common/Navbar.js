@@ -88,10 +88,7 @@ function Navbar(props) {
               <Link
                 to="/Parent-hub"
                 className="nav-links"
-                onClick={() => {
-                  closeMobileMenu();
-                  startGame();
-                }}
+                onClick={closeMobileMenu}
               >
                 <Typography
                   style={{
