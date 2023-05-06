@@ -160,32 +160,36 @@ function Navbar(props) {
             </li>
           </ul>
           {button && (
-            <Button buttonStyle="btn--outline">
-              <Typography
-                style={{
-                  fontFamily: "Sinhala",
-                  fontSize: "20px",
-                  fontWeight: 600,
-                }}
-              >
-                mqrkh
-              </Typography>
-              {/* Log In */}
-            </Button>
+            <Link to="/Log-in">
+              <Button buttonStyle="btn--outline">
+                <Typography
+                  style={{
+                    fontFamily: "Sinhala",
+                    fontSize: "20px",
+                    fontWeight: 600,
+                  }}
+                >
+                  mqrkh
+                </Typography>
+                {/* Log In */}
+              </Button>
+            </Link>
           )}
           {button && (
-            <Button buttonStyle="btn--outline">
-              <Typography
-                style={{
-                  fontFamily: "Sinhala",
-                  fontSize: "20px",
-                  fontWeight: 600,
-                }}
-              >
-                ,shdmÈxÑh
-              </Typography>
-              {/* Sign Up */}
-            </Button>
+            <Link to="/Sign-up">
+              <Button buttonStyle="btn--outline">
+                <Typography
+                  style={{
+                    fontFamily: "Sinhala",
+                    fontSize: "20px",
+                    fontWeight: 600,
+                  }}
+                >
+                  ,shdmÈxÑh
+                </Typography>
+                {/* Sign Up */}
+              </Button>
+            </Link>
           )}
         </div>
       </nav>

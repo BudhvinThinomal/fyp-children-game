@@ -2,14 +2,19 @@ import React, { lazy, useEffect, useState, Suspense } from "react";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { CssBaseline, CircularProgress, Backdrop } from "@mui/material";
 import "./App.css";
-import Navbar from "./components/Navbar";
+import Navbar from "./components/Common/Navbar";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import CacheBuster from "react-cache-buster";
 import * as packageInfo from "../package.json";
+import Footer from "./components/Common/Footer";
 
 const theme = createTheme();
 
 const Home = lazy(() => import("./pages/Home"));
+const ParentHub = lazy(() => import("./pages/ParentHub"));
+const About = lazy(() => import("./pages/About"));
+const LogIn = lazy(() => import("./pages/LogIn"));
+const SignUp = lazy(() => import("./pages/SignUp"));
 
 function App() {
   const [gameStarted, setGameStarted] = useState(false);
@@ -43,6 +48,7 @@ function App() {
             }
           >
             {!gameStarted && <Navbar startGame={startGame} />}
+
             <Routes>
               <Route
                 path="/"
@@ -55,11 +61,12 @@ function App() {
                 }
               />
 
-              {/* <Route path="/Parent-hub" element={ParentHub} />
+              <Route path="/Parent-hub" element={ParentHub} />
               <Route path="/About" element={About} />
               <Route path="/Log-in" element={LogIn} />
-           <Route path="/Sign-up" element={SignUp} /> */}
+              <Route path="/Sign-up" element={SignUp} />
             </Routes>
+            {!gameStarted && <Footer />}
           </Suspense>
         </BrowserRouter>
       </ThemeProvider>

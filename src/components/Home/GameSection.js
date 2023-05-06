@@ -1,6 +1,6 @@
 import React from "react";
-import "../App.css";
-import { Button } from "./Button";
+import "../../App.css";
+import { Button } from "../Common/Button";
 import "./GameSection.css";
 import { Typography } from "@mui/material";
 import { makeStyles } from "@mui/styles";

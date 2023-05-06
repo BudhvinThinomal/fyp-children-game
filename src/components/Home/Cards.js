@@ -1,8 +1,8 @@
 import React from "react";
 import "./Cards.css";
 import CardItem from "./CardItem";
-import ParentHub from "../assets/Parents.png";
-import AboutUs from "../assets/Children.png";
+import ParentHub from "../../assets/Parents.png";
+import AboutUs from "../../assets/Children.png";
 import { Typography } from "@mui/material";
 
 function Cards() {
