@@ -1,0 +1,80 @@
+.ParentForm {
+    padding: 4rem;
+    background-color: whitesmoke;
+    background-image: linear-gradient(to top, #999999, whitesmoke);
+  }
+  
+  h1 {
+    text-align: center;
+  }
+  
+  .ParentForm > h3 {
+    color: #fff;
+    font-size: 40px;
+    font-family: "Sinhala";
+    font-weight: 600;
+    color: #252e48;
+    text-align: center;
+  }
+  
+  .ParentForm__container {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    max-width: 1120px;
+    width: 90%;
+    margin: 0 auto;
+  }
+  
+  .ParentForm__wrapper {
+    position: relative;
+    margin: 50px 0 45px;
+    width: 1500px;
+  }
+  
+  .ParentForm__items {
+    margin-bottom: 24px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .ParentForm__item {
+    display: flex;
+    flex: 1;
+    margin: 1rem 1rem;
+    border-radius: 10px;
+    background: whitesmoke;
+  }
+    
+  .ParentForm__item__info {
+    padding: 20px 30px 30px;
+  }
+
+  .ParentForm__item__title {
+    color: #252e48;
+    line-height: 24px;
+  }
+  
+  .ParentForm__item__text {
+    color: #000;
+    line-height: 24px;
+  }
+  
+  @media only screen and (min-width: 1200px) {
+    .content__blog__container {
+      width: 84%;
+    }
+  }
+  
+  @media only screen and (min-width: 1024px) {
+    .ParentForm__items {
+      display: flex;
+    }
+  }
+  
+  @media only screen and (max-width: 1024px) {
+    .ParentForm__item {
+      margin-bottom: 2rem;
+    }
+  }
+  

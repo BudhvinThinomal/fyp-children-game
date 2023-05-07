@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import Cards from "../components/Home/Cards";
+import ParentForm from "../components/ParentHub/ParentForm";
 
 const ParentHub = (props) => {
   const { startGame, isGameStarted, closeGame } = props;
 
   return (
     <>
-      <Cards />
+      <ParentForm />
     </>
   );
 };

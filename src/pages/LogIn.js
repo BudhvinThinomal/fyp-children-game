@@ -16,15 +16,15 @@ const LogIn = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const fullName = e.target.fullName.value;
-    console.log(fullName);
+    const userName = e.target.username.value;
+    console.log(userName);
   };
 
   return (
     <Grid container component="main" className="root">
       <Grid item xs={false} sm={2} md={4} className="image" />
       <Grid item xs={12} sm={10} md={8} className="formContainer">
-        <div className="form">
+        <form onSubmit={handleSubmit} className="form">
           <Typography
             variant="h3"
             style={{
@@ -60,19 +60,13 @@ const LogIn = () => {
             fullWidth
             className="textField"
           />
-          <button
-            buttonStyle="btn--outline"
-            buttonSize="btn--medium"
-            type="submit"
-            onClick={handleSubmit}
-            className="logInButton"
-          >
+          <button type="submit" className="logInButton">
             <Typography variant="h5" className="logInLabel">
               mqrkh ùu
               {/* Log In */}
             </Typography>
           </button>
-        </div>
+        </form>
       </Grid>
     </Grid>
   );
