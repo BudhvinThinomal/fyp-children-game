@@ -1,13 +1,11 @@
 import React, { useState } from "react";
 import "../App.css";
-import Cards from "../components/Home/Cards";
+import InfoCards from "../components/About/InfoCards";
 
-const About = (props) => {
-  const { startGame, isGameStarted, closeGame } = props;
-
+const About = () => {
   return (
     <>
-      <Cards />
+      <InfoCards />
     </>
   );
 };
