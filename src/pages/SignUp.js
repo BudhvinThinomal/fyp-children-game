@@ -1,12 +1,35 @@
-import React from "react";
+import React, { useState } from "react";
 import { Grid, Typography, TextField, Button } from "@mui/material";
 import "./SignUp.css";
 
 const SignUp = () => {
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const fullName = e.target.fullName.value;
-    console.log(fullName);
+  const [formValues, setFormValues] = useState({
+    fullName: "",
+    username: "",
+    password: "",
+  });
+
+  const onChangeFilters = (e) => {
+    setFormValues((formValues) => ({
+      ...formValues,
+      [e.target.name]: e.target.value,
+    }));
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    console.log(formValues);
+    // save(details);
+    clearData();
+  };
+
+  const clearData = () => {
+    setFormValues((formValues) => ({
+      ...formValues,
+      fullName: "",
+      username: "",
+      password: "",
+    }));
   };
   return (
     <Grid container component="main" className="root">
@@ -34,6 +57,8 @@ const SignUp = () => {
             variant="outlined"
             fullWidth
             className="textField"
+            value={formValues?.fullName}
+            onChange={onChangeFilters}
           />
           <TextField
             name="username"
@@ -46,6 +71,8 @@ const SignUp = () => {
             variant="outlined"
             fullWidth
             className="textField"
+            value={formValues?.username}
+            onChange={onChangeFilters}
           />
           <TextField
             name="password"
@@ -59,6 +86,8 @@ const SignUp = () => {
             variant="outlined"
             fullWidth
             className="textField"
+            value={formValues?.password}
+            onChange={onChangeFilters}
           />
           <button type="submit" className="signUpButton">
             <Typography variant="h5" className="signUpLabel">

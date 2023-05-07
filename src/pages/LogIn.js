@@ -1,23 +1,35 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { Grid, TextField, Typography } from "@mui/material";
 import "./LogIn.css";
 
 const LogIn = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [formValues, setFormValues] = useState({
+    fullName: "",
+    username: "",
+    password: "",
+  });
 
-  const handleEmailChange = (e) => {
-    setEmail(e.target.value);
+  const onChangeFilters = (e) => {
+    setFormValues((formValues) => ({
+      ...formValues,
+      [e.target.name]: e.target.value,
+    }));
   };
 
-  const handlePasswordChange = (e) => {
-    setPassword(e.target.value);
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    console.log(formValues);
+    // save(details);
+    clearData();
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const userName = e.target.username.value;
-    console.log(userName);
+  const clearData = () => {
+    setFormValues((formValues) => ({
+      ...formValues,
+      fullName: "",
+      username: "",
+      password: "",
+    }));
   };
 
   return (
@@ -46,6 +58,8 @@ const LogIn = () => {
             variant="outlined"
             fullWidth
             className="textField"
+            value={formValues?.username}
+            onChange={onChangeFilters}
           />
           <TextField
             name="password"
@@ -59,7 +73,10 @@ const LogIn = () => {
             variant="outlined"
             fullWidth
             className="textField"
+            value={formValues?.password}
+            onChange={onChangeFilters}
           />
+
           <button type="submit" className="logInButton">
             <Typography variant="h5" className="logInLabel">
               mqrkh ùu
