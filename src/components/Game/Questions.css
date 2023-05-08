@@ -1,0 +1,36 @@
+.submitButton {
+    width: 20%;
+    margin: 20px;
+    background-color: transparent;
+    color: #fff;
+    padding: 8px 20px;
+    border-radius: 4px;
+    border: none;
+    }
+    
+    .submitButton:hover {
+    transition: all 0.3s ease-out;
+    background-color: #242424;
+    }
+
+
+      
+    .mirror-label {
+    transform: scaleX(-1);
+    font-family: "Sinhala";
+    font-weight: 600;
+    color: "#fff";
+    font-size: "24px";
+    display: inline;
+    }
+.option {
+    display: flex;    
+    }
+
+.label {
+    font-family: "Sinhala";
+    font-weight: 600;
+    color: "#fff";
+    font-size: "24px";
+    display: inline;
+}
