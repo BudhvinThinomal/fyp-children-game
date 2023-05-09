@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import { Grid, Typography, TextField, Button } from "@mui/material";
 import "./SignUp.css";
+import { useNavigate } from "react-router-dom";
 
 const SignUp = () => {
+  const navigate = useNavigate();
   const [formValues, setFormValues] = useState({
     fullName: "",
     username: "",
@@ -21,6 +23,7 @@ const SignUp = () => {
     console.log(formValues);
     // save(details);
     clearData();
+    navigate("/");
   };
 
   const clearData = () => {

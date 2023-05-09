@@ -9,7 +9,6 @@ import {
   Box,
 } from "@mui/material";
 import "./Questions.css";
-import wand from "../../assets/Wand.png";
 import Q2_1 from "../../assets/Answer Images/Q2/tree.png";
 import Q2_2 from "../../assets/Answer Images/Q2/necklace.png";
 import Q2_3 from "../../assets/Answer Images/Q2/news.jpg";

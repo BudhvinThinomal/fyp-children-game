@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import { Grid, TextField, Typography } from "@mui/material";
 import "./LogIn.css";
+import { useNavigate } from "react-router-dom";
+import { riskDetection } from "../api/predictionApi";
 
 const LogIn = () => {
+  const navigate = useNavigate();
   const [formValues, setFormValues] = useState({
     fullName: "",
     username: "",
@@ -21,6 +24,8 @@ const LogIn = () => {
     console.log(formValues);
     // save(details);
     clearData();
+    navigate("/");
+    // addPost();
   };
 
   const clearData = () => {
@@ -30,6 +35,24 @@ const LogIn = () => {
       username: "",
       password: "",
     }));
+  };
+
+  const addPost = async () => {
+    const newPost = {
+      data: [
+        [
+          0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3,
+          0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 1,
+          1, 1, 0, 0, 0, 1, 0, 0, 0, 1,
+        ],
+      ],
+    };
+    try {
+      const response = await riskDetection(newPost);
+      console.log(response);
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   return (
