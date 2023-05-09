@@ -1,15 +1,17 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   FormControl,
   FormControlLabel,
   Radio,
   RadioGroup,
-  Button,
+  Snackbar,
   Typography,
+  SnackbarContent,
 } from "@mui/material";
 import "./FormFill.css";
 
 const FormFill = () => {
+  const [open, setOpen] = useState(false);
   const [formValues, setFormValues] = useState({
     Q_P_1: "",
     Q_P_2: "",
@@ -29,7 +31,31 @@ const FormFill = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log(formValues);
+    setTimeout(() => {
+      setOpen(true);
+    }, 1000);
   };
+
+  const handleImageChange = (e) => {
+    const { name } = e.target;
+    const file = e.target.files[0];
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onloadend = () => {
+      setFormValues((prevState) => ({
+        ...prevState,
+        [name]: reader.result,
+      }));
+    };
+  };
+
+  useEffect(() => {
+    if (open) {
+      setTimeout(() => {
+        setOpen(false);
+      }, 3000); // Close Snackbar after 2 seconds
+    }
+  }, [open]);
 
   return (
     <div className="form-container">
@@ -417,6 +443,43 @@ const FormFill = () => {
           </RadioGroup>
         </FormControl>
 
+        <div className="form-input">
+          <label htmlFor="Q_P_1" className="form-label">
+            {"8 jk m%Yakhg wod< jk mska;+r we;=<;a lrkak( "}
+          </label>
+          <input
+            type="file"
+            name="Q_P_21"
+            accept="image/*"
+            onChange={handleImageChange}
+            required
+          />
+        </div>
+        <div className="form-input">
+          <label htmlFor="Q_P_2" className="form-label">
+            {"9 jk m%Yakhg wod< jk mska;+r we;=<;a lrkak( "}
+          </label>
+          <input
+            type="file"
+            name="Q_P_22"
+            accept="image/*"
+            onChange={handleImageChange}
+            required
+          />
+        </div>
+        <div className="form-input">
+          <label htmlFor="Q_P_3" className="form-label">
+            {"16 jk m%Yakhg wod< jk mska;+r we;=<;a lrkak( "}
+          </label>
+          <input
+            type="file"
+            name="Q_P_23"
+            accept="image/*"
+            onChange={handleImageChange}
+            required
+          />
+        </div>
+
         <button type="submit" className="submitButton">
           <Typography variant="h5" className="submitLabel">
             ;yjqre lrkak
@@ -424,6 +487,34 @@ const FormFill = () => {
           </Typography>
         </button>
       </form>
+
+      <Snackbar
+        anchorOrigin={{
+          vertical: "bottom",
+          horizontal: "right",
+        }}
+        open={open}
+        autoHideDuration={3000}
+        style={{
+          marginBottom: "10rem",
+        }}
+      >
+        <SnackbarContent
+          message={
+            <Typography
+              style={{
+                color: "#fff",
+                fontFamily: "Sinhala",
+                fontSize: "26px",
+                fontWeight: 600,
+              }}
+            >
+              {"id¾:lj wdodkh isÿ l<dææ"}
+            </Typography>
+          }
+          style={{ backgroundColor: "#000" }}
+        />
+      </Snackbar>
     </div>
   );
 };
